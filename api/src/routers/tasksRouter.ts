@@ -4,7 +4,7 @@ import { add, receiving } from "../controllers/tasksController";
 
 const router = Router();
 
-router.post("/add", add);
-router.get("/receiving", receiving);
+router.post("/", add);
+router.get("/", receiving);
 
 export default router;
