@@ -15,11 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.receiving = exports.add = void 0;
 const tasks_1 = __importDefault(require("../models/tasks"));
 const add = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, level, tasks, themes } = req.body;
-    if (!name || !level || !tasks || !themes) {
+    const { name, level, text, themes } = req.body;
+    if (!name || !level || !text || !themes) {
         return res.status(400).json({ error: 'missing required fields' });
     }
-    const task = new tasks_1.default({ name, level, tasks, themes });
+    const task = new tasks_1.default({ name, level, text, themes });
     yield task.save();
     return res.status(201).json(task);
 });

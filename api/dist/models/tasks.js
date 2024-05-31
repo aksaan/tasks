@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const TasksSchema = new mongoose_1.Schema({
+const TaskSchema = new mongoose_1.Schema({
     name: {
         type: String,
         minLength: 5,
@@ -32,10 +32,10 @@ const TasksSchema = new mongoose_1.Schema({
     },
     level: {
         type: Number,
-        minLength: 5,
-        maxLength: 50,
+        min: 1,
+        max: 10
     },
-    task: {
+    text: {
         type: String,
         minLength: 10,
         maxLength: 1000,
@@ -46,5 +46,5 @@ const TasksSchema = new mongoose_1.Schema({
             maxLength: 50,
         }]
 });
-const Tasks = mongoose_1.default.model("Tasks", TasksSchema);
-exports.default = Tasks;
+const Task = mongoose_1.default.model("Task", TaskSchema);
+exports.default = Task;
