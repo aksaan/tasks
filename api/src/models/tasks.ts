@@ -1,13 +1,13 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 
-export interface ITasks extends Document {
+export interface ITask extends Document {
     name: string,
     level: number,
-    task: string,
+    text: string,
     themes: string[]
 }
-const TasksSchema = new Schema ({
+const TaskSchema = new Schema ({
     name : {
         type : String, 
         minLength : 5,
@@ -15,10 +15,10 @@ const TasksSchema = new Schema ({
     },
     level : {
         type : Number, 
-        minLength : 5,
-        maxLength : 50,
+        min : 1,
+        max : 10
     },
-    task : {
+    text : {
         type : String, 
         minLength : 10,
         maxLength : 1000,
@@ -30,6 +30,6 @@ const TasksSchema = new Schema ({
     }]
 })
 
-const Tasks = mongoose.model<ITasks>("Tasks", TasksSchema);
+const Task = mongoose.model<ITask>("Task", TaskSchema);
 
-export default Tasks;
+export default Task;
