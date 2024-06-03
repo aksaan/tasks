@@ -16,10 +16,12 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = require("mongoose");
 const cors_1 = __importDefault(require("cors"));
 const tasksRouter_1 = __importDefault(require("./routers/tasksRouter"));
+const workRouter_1 = __importDefault(require("./routers/workRouter"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use("/tasks", tasksRouter_1.default);
+app.use("/work", workRouter_1.default);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

@@ -4,6 +4,7 @@ import cors from 'cors';
 
 
 import tasksRouter from './routers/tasksRouter'
+import workRouter from './routers/workRouter'
 
 const app : Express = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/tasks", tasksRouter);
+app.use("/work", workRouter)
 
 async function main() {
     
